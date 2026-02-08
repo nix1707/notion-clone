@@ -2,7 +2,6 @@
 
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { ChevronsLeftRight } from "lucide-react";
-import { Toaster } from "sonner";
 import {
   DropdownMenu,
   DropdownMenuContent,
