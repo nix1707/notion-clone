@@ -10,7 +10,7 @@ import { useTheme } from "next-themes";
 import { useEdgeStore } from "@/lib/edgestore";
 
 interface EditorProps {
-  onChange: (value: string) => void;
+  onChange?: (value: string) => void;
   initialContent?: string;
   editable?: boolean;
 }
@@ -36,7 +36,7 @@ const Editor = ({ onChange, initialContent, editable }: EditorProps) => {
       <BlockNoteView
         editable={editable}
         onChange={(editor) => {
-          onChange(JSON.stringify(editor.document, null, 2));
+          onChange?.(JSON.stringify(editor.document, null, 2));
         }}
         theme={resolvedTheme === "dark" ? "dark" : "light"}
         editor={editor}
