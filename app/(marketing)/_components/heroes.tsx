@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Heroes = () => {
   return (
-    <div className="flex flex-col items-center justify-center max-w-5xl">
+    <div className="flex flex-col items-center justify-center dark:bg-[#1F1F1F] h-full w-full">
       <div className=" flex items-center">
         <div
           className="relative w-75 h-75 sm:w-87.5 

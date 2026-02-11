@@ -102,7 +102,7 @@ const Item = ({
       role="button"
       style={{ paddingLeft: level ? `${level * 12 + 12}px` : "12px" }}
       className={cn(
-        "group min-h-[27px] text-sm py-1 pr-3 w-full",
+        "group min-h-6.75 text-sm py-1 pr-3 w-full",
         "hover:bg-primary/5 flex items-center text-muted-foreground cursor-pointer",
         "font-medium",
         active && "bg-primary/5 text-primary",
@@ -121,7 +121,7 @@ const Item = ({
       {documentIcon ? (
         <div className="shrink-0 mr-2 text-[18px]">{documentIcon}</div>
       ) : (
-        <Icon className="shrink-0 h-[18px] mr-2 w-[18px] text-muted-foreground" />
+        <Icon className="shrink-0 h-4.5 mr-2 w-4.5 text-muted-foreground" />
       )}
       <span className="truncate">{label}</span>
       {isSearch && (
@@ -180,7 +180,7 @@ Item.Skeleton = function ItemSkeleton({ level }: { level?: number }) {
   return (
     <div
       style={{ paddingLeft: level ? `${level * 12 + 25}px` : "12px" }}
-      className="flex gap-x-2 py-[3px]"
+      className="flex gap-x-2 py-0.75"
     >
       <Skeleton className="h-4 w-4" />
       <Skeleton className="h-4 w-[30%]" />

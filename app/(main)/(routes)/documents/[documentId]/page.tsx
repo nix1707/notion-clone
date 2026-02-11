@@ -2,32 +2,34 @@
 
 import { useMutation, useQuery } from "convex/react";
 import dynamic from "next/dynamic";
-import { useMemo } from "react";
+import { useCallback, useMemo } from "react";
 import { api } from "@/convex/_generated/api";
 import { Id } from "@/convex/_generated/dataModel";
 import Toolbar from "@/components/toolbar";
 import { useParams } from "next/navigation";
 import Cover from "@/components/cover";
 import { Skeleton } from "@/components/ui/skeleton";
+import { useDebounce } from "@/hooks/useDebounce";
+
+const Editor = dynamic(() => import("@/components/editor"), { ssr: false });
 
 const DocumentIdPage = () => {
-  const Editor = useMemo(
-    () => dynamic(() => import("@/components/editor"), { ssr: false }),
-    [],
-  );
-
   const params = useParams();
-  const document = useQuery(api.documents.getById, {
-    documentId: params.documentId as Id<"documents">,
-  });
+  const documentId = params.documentId as Id<"documents">;
 
+  const queryArgs = useMemo(() => ({ documentId }), [documentId]);
+  const document = useQuery(api.documents.getById, queryArgs);
   const update = useMutation(api.documents.update);
-  const onChange = (content: string) => {
-    update({
-      id: params.documentId as Id<"documents">,
-      content,
-    });
-  };
+
+  const debouncedUpdate = useDebounce(
+    useCallback(
+      (content: string) => {
+        update({ id: documentId, content });
+      },
+      [update, documentId],
+    ),
+    3_000,
+  );
 
   if (document === undefined) {
     return (
@@ -48,12 +50,13 @@ const DocumentIdPage = () => {
   if (document === null) {
     return <div>Not found</div>;
   }
+
   return (
-    <div className="pb-40 ">
+    <div className="pb-40">
       <Cover url={document.coverImage} />
       <div className="md:max-w-3xl lg:max-w-4xl mx-auto">
         <Toolbar initialData={document} />
-        <Editor onChange={onChange} initialContent={document.content} />
+        <Editor initialContent={document.content} onChange={debouncedUpdate} />
       </div>
     </div>
   );

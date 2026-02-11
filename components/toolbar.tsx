@@ -60,7 +60,7 @@ const Toolbar = ({ initialData, preview }: ToolbarProps) => {
   };
 
   return (
-    <div className="pl-[54px] group relative">
+    <div className="pl-13.5 group relative">
       {!!initialData.icon && !preview && (
         <div className="flex items-center gap-x-2 group/icon pt-6">
           <IconPicker onChange={onIconSelect}>
@@ -114,13 +114,13 @@ const Toolbar = ({ initialData, preview }: ToolbarProps) => {
           onKeyDown={onKeyDown}
           value={value}
           onChange={(e) => onInput(e.target.value)}
-          className="text-5xl bg-transparent font-bold break-words 
+          className="text-5xl bg-transparent font-bold wrap-break-word 
           outline-none text-[#3F3F3F] dark:text-[#CFCFCF] resize-none"
         />
       ) : (
         <div
           onClick={enableInput}
-          className="pb-[11.5px] text-5xl font-bold break-words 
+          className="pb-[11.5px] text-5xl font-bold wrap-break-word 
           outline-none text-[#3F3F3F] dark:text-[#CFCFCF] "
         >
           {initialData.title}
