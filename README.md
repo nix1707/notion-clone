@@ -2,6 +2,10 @@
 
 A lightweight Notion-inspired note-taking app focused on speed, simplicity, and real-time data handling.
 Built as an experiment in modern full-stack architecture and editor design.
+
+https://app-note-taking.vercel.app/
+---
+
 <img width="1122" height="672" alt="Screenshot 2026-02-11 035513" src="https://github.com/user-attachments/assets/0c586526-582c-48eb-814d-2faf66b83349" />
 
 
