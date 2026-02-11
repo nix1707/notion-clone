@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+### Notion-like Editor
 
-## Getting Started
+A lightweight Notion-inspired note-taking app focused on speed, simplicity, and real-time data handling.
+Built as an experiment in modern full-stack architecture and editor design.
+<img width="1122" height="672" alt="Screenshot 2026-02-11 035513" src="https://github.com/user-attachments/assets/0c586526-582c-48eb-814d-2faf66b83349" />
 
-First, run the development server:
 
-```bash
+## Tech Stack
+
+-   **Next.js**
+    
+-   **Zustand**
+    
+-   **Convex**
+    
+-   **Clerk**
+    
+-   **Tailwind CSS**
+    
+
+## Features
+
+-   Block-based note structure
+    
+-   Real-time data persistence
+    
+-   Authenticated user sessions
+    
+-   Clean, minimal UI
+    
+
+## Installation
+
+```
+# clone the repository
+git clone https://github.com/nix1707/notion-clone.git
+cd notion-clone
+
+# install dependencies
+npm install
+
+# start the dev server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+#run convex
+npx convex dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Environment Variables
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Create a `.env.local` file and configure the following:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+CONVEX_DEPLOYMENT=
+NEXT_PUBLIC_CONVEX_URL=
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
+CLERK_SECRET_KEY=
+EDGE_STORE_ACCESS_KEY=
+EDGE_STORE_SECRET_KEY=
+```
 
-## Learn More
+Make sure Clerk and Convex projects are set up before running the app.
 
-To learn more about Next.js, take a look at the following resources:
+## Project Status
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Actively developed. Core functionality is implemented, with improvements planned.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Todo / Future Work
 
-## Deploy on Vercel
+-   Refactor note editing logic on the backend
+    
+-   Add collaboration mode
+    
+-   Introduce templates
+    
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Purpose
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is built for learning, experimentation, and showcasing modern full-stack patterns. It is not intended to be a full Notion replacement.
+
+___
